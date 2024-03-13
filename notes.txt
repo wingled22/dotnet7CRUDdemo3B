@@ -1,0 +1,21 @@
+to create new proj type this on the terminal:
+    dotnet new mvc
+
+ADDING EntityFramework to scaffold model
+    1. Download packages
+        EntityFrameworkCore
+        EntityFrameworkCore.SqlServer
+        EntityFrameworkCore.Tools
+
+    2. DbContext Scaffolding
+        dotnet ef dbcontext scaffold "Server=localhost;Database=Library;TrustServerCertificate=true;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -o Entities -f
+
+
+    3. Dependency Injection
+        you will add Dependency [DbContext: LibraryContext] to Program.cs
+        builder.Services.AddDbContext<LibraryContext>( options => 
+            options.UseSqlServer("Server=localhost;Database=Library;User ID=SA;Password=VeryStr0ngP@ssw0rd;TrustServerCertificate=true;")
+        ) ;
+
+
+    4. How to use the DbContext

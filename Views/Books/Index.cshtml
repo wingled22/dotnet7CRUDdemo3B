@@ -1,0 +1,14 @@
+@model List<newFolder.Entities.Book>
+
+<h3>list of Books</h3>
+<a class="btn btn-success" href="/books/create">Create New</a>
+
+<hr>
+<ul>
+    @foreach(var book in Model){
+        <li> @book.Id |  @book.Name | @book.Author | 
+            <a class="btn btn-warning" href="/books/update/@book.Id">Update</a>
+            <a class="btn btn-danger" href="/books/delete/@book.Id">Delete</a>
+        </li>
+    }
+</ul>
